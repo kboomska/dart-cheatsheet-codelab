@@ -150,6 +150,7 @@ void main() {
 /// *******************************************************************************************
 /// Optional positional parameters
 
+/*
 String joinWithCommas(int a, [int? b, int? c, int? d, int? e]) {
   String str = '$a';
   if (b != null) str += ',$b';
@@ -163,4 +164,59 @@ void main() {
   print(joinWithCommas(1)); // '1'
   print(joinWithCommas(1, 2, 3)); // '1,2,3'
   print(joinWithCommas(1, 1, 1, 1, 1)); // '1,1,1,1,1'
+}
+*/
+
+/// *******************************************************************************************
+/// Named parameters
+
+class MyDataObject {
+  final int anInt;
+  final String aString;
+  final double aDouble;
+
+  MyDataObject({
+    this.anInt = 1,
+    this.aString = 'Old!',
+    this.aDouble = 2.0,
+  });
+
+  // Add your copyWith method here:
+  MyDataObject copyWith({int? newInt, String? newString, double? newDouble}) {
+    // newInt ??= anInt;
+    // newString ??= aString;
+    // newDouble ??= aDouble;
+    return MyDataObject(
+      anInt: newInt ?? anInt,
+      aString: newString ?? aString,
+      aDouble: newDouble ?? aDouble,
+    );
+  }
+}
+
+void main() {
+  MyDataObject obj = MyDataObject();
+  print(obj.anInt); // 1
+  print(obj.aString); // Old!
+  print(obj.aDouble); // 2.0
+
+  print('');
+
+  MyDataObject newObj = obj.copyWith(
+    newInt: 12,
+    newString: 'New!!',
+    newDouble: 3.4,
+  );
+  print(newObj.anInt); // 12
+  print(newObj.aString); // New!!
+  print(newObj.aDouble); // 3.4
+
+  print('');
+
+  MyDataObject anotherObj = obj.copyWith(
+    newString: 'Another!',
+  );
+  print(anotherObj.anInt); // 1
+  print(anotherObj.aString); // Another!
+  print(anotherObj.aDouble); // 2.0
 }
