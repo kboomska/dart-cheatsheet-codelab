@@ -116,6 +116,7 @@ BigObject fillBigObject(BigObject obj) {
 /// *******************************************************************************************
 /// Getters and setters
 
+/*
 class InvalidPriceException {}
 
 class ShoppingCart {
@@ -143,4 +144,23 @@ void main() {
   print(cart.total); // 112.15
 
   cart.prices = [1.01, -2.2]; // InvalidPriceException
+}
+*/
+
+/// *******************************************************************************************
+/// Optional positional parameters
+
+String joinWithCommas(int a, [int? b, int? c, int? d, int? e]) {
+  String str = '$a';
+  if (b != null) str += ',$b';
+  if (c != null) str += ',$c';
+  if (d != null) str += ',$d';
+  if (e != null) str += ',$e';
+  return str;
+}
+
+void main() {
+  print(joinWithCommas(1)); // '1'
+  print(joinWithCommas(1, 2, 3)); // '1,2,3'
+  print(joinWithCommas(1, 1, 1, 1, 1)); // '1,1,1,1,1'
 }
