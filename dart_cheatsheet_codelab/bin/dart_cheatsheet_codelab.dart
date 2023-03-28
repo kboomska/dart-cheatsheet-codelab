@@ -91,6 +91,7 @@ class MyClass {
 /// *******************************************************************************************
 /// Cascades
 
+/*
 class BigObject {
   int anInt = 0;
   String aString = '';
@@ -109,4 +110,37 @@ BigObject fillBigObject(BigObject obj) {
     ..aString = 'String!'
     ..aList = [3.0]
     ..allDone();
+}
+*/
+
+/// *******************************************************************************************
+/// Getters and setters
+
+class InvalidPriceException {}
+
+class ShoppingCart {
+  List<double> _prices = [];
+
+  // Add a "total" getter here:
+  double get total {
+    return _prices.fold(0, (sum, price) => sum += price);
+  }
+
+  // Add a "prices" setter here:
+  set prices(List<double> newList) {
+    if (newList.any((element) => element < 0)) {
+      throw InvalidPriceException();
+    }
+    _prices = newList;
+  }
+}
+
+void main() {
+  var cart = ShoppingCart();
+  print(cart.total); // 0
+
+  cart.prices = [1.01, 2.2, 3.14, 5.7, 100.1];
+  print(cart.total); // 112.15
+
+  cart.prices = [1.01, -2.2]; // InvalidPriceException
 }
