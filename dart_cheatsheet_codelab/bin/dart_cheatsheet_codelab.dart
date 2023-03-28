@@ -47,6 +47,7 @@ String? upperCaseIt(String? str) {
 /// *******************************************************************************************
 /// Collection literals
 
+/*
 // Assign this a list containing 'a', 'b', and 'c' in that order:
 final aListOfStrings = <String>['a', 'b', 'c'];
 
@@ -64,3 +65,23 @@ final anEmptySetOfString = <String>{};
 
 // Assign this an empty Map of double to int:
 final anEmptyMapOfDoublesToInts = <double, int>{};
+*/
+
+/// *******************************************************************************************
+/// Arrow syntax
+
+class MyClass {
+  int value1 = 2;
+  int value2 = 3;
+  int value3 = 5;
+
+  // Returns the product of the above values:
+  int get product => value1 * value2 * value3;
+
+  // Adds 1 to value1:
+  void incrementValue1() => value1++;
+
+  // Returns a string containing each item in the
+  // list, separated by commas (e.g. 'a,b,c'):
+  String joinWithCommas(List<String> strings) => strings.join(',');
+}
