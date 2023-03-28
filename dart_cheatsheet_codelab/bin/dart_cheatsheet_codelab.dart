@@ -70,6 +70,7 @@ final anEmptyMapOfDoublesToInts = <double, int>{};
 /// *******************************************************************************************
 /// Arrow syntax
 
+/*
 class MyClass {
   int value1 = 2;
   int value2 = 3;
@@ -84,4 +85,28 @@ class MyClass {
   // Returns a string containing each item in the
   // list, separated by commas (e.g. 'a,b,c'):
   String joinWithCommas(List<String> strings) => strings.join(',');
+}
+*/
+
+/// *******************************************************************************************
+/// Cascades
+
+class BigObject {
+  int anInt = 0;
+  String aString = '';
+  List<double> aList = [];
+  bool _done = false;
+
+  void allDone() {
+    _done = true;
+  }
+}
+
+BigObject fillBigObject(BigObject obj) {
+  // Create a single statement that will update and return obj:
+  return obj
+    ..anInt = 1
+    ..aString = 'String!'
+    ..aList = [3.0]
+    ..allDone();
 }
