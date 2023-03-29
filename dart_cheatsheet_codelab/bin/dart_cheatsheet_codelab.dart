@@ -259,6 +259,7 @@ void tryFunction(VoidFunction untrustworthy, Logger logger) {
 /// *******************************************************************************************
 /// Using this in a constructor
 
+/*
 class MyClass {
   final int anInt;
   final String aString;
@@ -266,4 +267,19 @@ class MyClass {
 
   // Create a constructor here.
   MyClass(this.anInt, this.aString, this.aDouble);
+}
+*/
+
+/// *******************************************************************************************
+/// Initializer lists
+
+class FirstTwoLetters {
+  final String letterOne;
+  final String letterTwo;
+
+  // Create a constructor with an initializer list here:
+  FirstTwoLetters(String word)
+      : assert(word.length >= 2),
+        letterOne = word[0],
+        letterTwo = word[1];
 }
