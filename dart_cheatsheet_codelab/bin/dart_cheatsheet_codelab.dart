@@ -344,6 +344,7 @@ class IntegerTriple extends IntegerHolder {
 /// *******************************************************************************************
 /// Redirecting constructors
 
+/*
 class Color {
   int red;
   int green;
@@ -354,4 +355,16 @@ class Color {
   // Create a named constructor called "black" here and redirect it
   // to call the existing constructor
   Color.black() : this(0, 0, 0);
+}
+*/
+
+/// *******************************************************************************************
+/// Const constructors
+
+class Recipe {
+  final List<String> ingredients;
+  final int calories;
+  final double milligramsOfSodium;
+
+  const Recipe(this.ingredients, this.calories, this.milligramsOfSodium);
 }
