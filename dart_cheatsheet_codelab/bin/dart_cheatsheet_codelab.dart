@@ -308,6 +308,7 @@ class Color {
 /// *******************************************************************************************
 /// Factory constructors
 
+/*
 class IntegerHolder {
   IntegerHolder();
 
@@ -337,4 +338,20 @@ class IntegerTriple extends IntegerHolder {
   final int b;
   final int c;
   IntegerTriple(this.a, this.b, this.c);
+}
+*/
+
+/// *******************************************************************************************
+/// Redirecting constructors
+
+class Color {
+  int red;
+  int green;
+  int blue;
+
+  Color(this.red, this.green, this.blue);
+
+  // Create a named constructor called "black" here and redirect it
+  // to call the existing constructor
+  Color.black() : this(0, 0, 0);
 }
