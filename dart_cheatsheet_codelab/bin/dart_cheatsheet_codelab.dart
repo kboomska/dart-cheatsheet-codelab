@@ -226,6 +226,7 @@ void main() {
 /// *******************************************************************************************
 /// Exceptions
 
+/*
 typedef VoidFunction = void Function();
 
 class ExceptionWithMessage {
@@ -252,4 +253,17 @@ void tryFunction(VoidFunction untrustworthy, Logger logger) {
   } finally {
     logger.doneLogging();
   }
+}
+*/
+
+/// *******************************************************************************************
+/// Using this in a constructor
+
+class MyClass {
+  final int anInt;
+  final String aString;
+  final double aDouble;
+
+  // Create a constructor here.
+  MyClass(this.anInt, this.aString, this.aDouble);
 }
